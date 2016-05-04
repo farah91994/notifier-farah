@@ -130,9 +130,12 @@ class UserController extends Controller
 		}
 		foreach($aId as $id){
 			$ast[]=DB::table("students")->where("student_id","=",$id)->get()[0]->student_name;
+           // $atok []=DB::table("students")->where("student_id","=",$id)->get()[0]->student_token;
 		}
+        //Session::put("$atok",$atok);
 		$dIdPost = Session::get('id_post');
 		$post = DB::table("posts")->where("id","=",$dIdPost)->get()[0]->body;
+
 		return view::make("sendPost",array("role"=>$dIdRole,'st' => $ast,"Post"=>$post));
 	}
     public function sendUser(){
