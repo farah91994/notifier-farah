@@ -1,0 +1,28 @@
+	.row{
+		margin-bottom:10px;
+	}
+	.course-box{
+		margin-left:10px;
+		font-size:15px;
+	}
+	#courseError{
+		display:none;
+	}
+
+	.course_name{
+		font-size:14pt;
+		text-align: center;
+		font-weight:bold;
+		background-color: rgba(51, 122, 183, 0.17);
+	}
+	.btn-student{
+		width:100px;
+		margin-left:500px;
+
+	}
+	.student-box{
+		margin:0 auto;
+	}
+	.btn{
+		margin-top:10px;
+	}
