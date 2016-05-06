@@ -2,6 +2,13 @@
 @section("head")
 		<link rel="stylesheet" href="{{ URL::to('src/css/courseSelection.css') }}" />
 		<script type="text/javascript" src="{{ URL::to('src/js/courseSelection.js') }}"></script>
+        <script language="JavaScript">
+            function selectAll(source) {
+                checkboxes = document.getElementsByName('courses');
+                for(var i in checkboxes)
+                    checkboxes[i].checked = source.checked;
+            }
+        </script>
 @endsection
 @section('content')
  <div class="row">
@@ -21,9 +28,12 @@
   <div class="db-center-block">
             <div class="well" style="max-height:300px; overflow: auto;margin-top: -30px">
 					 <form id='courseForm'>
-					    @foreach ($courses as $course) 
+                         <div class="row course-box">
+                         <label class="coursesall"> <input type="checkbox" class="coursesall" id="selectall" onClick="selectAll(this)"/>Select All</label>
+                          </div>
+					    @foreach ($courses as $course)
 							 <div class="row course-box">
-								<label> <input type="checkbox"  class="courses" value='{{$course->id}}' name="{{ $course->course_name }}" > {{ $course->course_name }}</label>
+								<label> <input type="checkbox"  class="courses" value='{{$course->id}}' name="courses" > {{ $course->course_name }}</label>
 							 </div>
 						@endforeach
 					 </form>

@@ -17,11 +17,16 @@ class PushNotificationController extends Controller
 
         $token = 'eDEH7Bj7mdg:APA91bH7xLUihgeOiS3PZREi6z879ZxwqdaLRSwxU3_lJQ_cWCcC5xLsExzzFw0aCtqWVpqBdepFUth_niokTpUTiYcWCa-U2LfkAb81fIrI310i_po2TlP5lZzkxsWCEGwllWpgVV0r';
         $token1='c0OuTKBHW9Q:APA91bE_s4-iDlC2qARsxZxL1oye85SBLSInbrZPZrlOzbcF_IKHpISWwQXF3eYw68i6LZOZzHUV9MZB5wzwycLa4qjsWN7zfRNCl_UocPe3Y8RwkrPA9VsDjSiistj-0o3JtaDM5ytR';
-        //$tok= Session::get("atok");
-        $devices = PushNotification::DeviceCollection(array(
-            PushNotification::Device($token),
-            PushNotification::Device($token1)
-        ));
+        $atok= Session::get("atok");
+        $aTemp= array();
+        $i=0;
+        foreach($atok as $tok){
+            $aTemp[$i] =  PushNotification::Device($tok);
+            $i++;
+        }
+
+      // dd($aTemp);
+        $devices = PushNotification::DeviceCollection($aTemp);
 
        //$message = 'We have successfully sent a push notification!';
         $dIdPost = Session::get('id_post');

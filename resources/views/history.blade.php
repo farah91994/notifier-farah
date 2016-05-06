@@ -14,13 +14,12 @@
 				   <article class="post" data-postid="{{ $post->id }}">
 					   <p>{{ $post->body }}</p>
 					  <div class="info">
-						  Posted by {{ $user['name'] }} on {{ $post->created_at }}
+						  Posted by: {{ $user['name'] }} on {{ $post->created_at }}
+                          | Sent to:
+                          @foreach($Acourse as $cor)
+                          {{ $cor->course_name }}
+                              @endforeach
 					  </div>
-					  <div class="interaction">
-							   |
-							  <a href="#" class="edit">Edit</a> |
-							  <a href="{{ route('post.delete', ['post_id' => $post->id]) }}">Delete</a>
-						</div>
 				   </article>
 			   @endforeach
 		 </div>

@@ -17,6 +17,11 @@
           <a type="button" class="btn btn-default  btn-success disabled" href=href="<?php echo e(route('sendPost')); ?> ><span class="badge">3</span> Send Post</a>
        </div>
        </section>
+ <?php /*<div class="row">*/ ?>
+     <?php /*<div class="well col-md-4" style="max-height:300px; overflow: auto;margin-top: -10px;margin-left:-90px">*/ ?>
+            <?php /**/ ?>
+             <?php /*</div>*/ ?>
+ <?php /*</div>*/ ?>
   <section class="row new-post">
        <div class="col-md-6 col-md-offset-3">
 	    <header><h3> What would you like to say? </h3> </header>

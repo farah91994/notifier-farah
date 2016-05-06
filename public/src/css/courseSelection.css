@@ -21,8 +21,12 @@
 
 	}
 	.student-box{
-		margin:0 auto;
+		margin:3px auto;
 	}
 	.btn{
 		margin-top:10px;
+	}
+	.coursesall{
+		margin-left: -20px;
+        color:#337AB7;
 	}

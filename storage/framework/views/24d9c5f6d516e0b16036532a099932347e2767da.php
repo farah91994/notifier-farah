@@ -12,14 +12,14 @@
 				   <article class="post" data-postid="<?php echo e($post->id); ?>">
 					   <p><?php echo e($post->body); ?></p>
 					  <div class="info">
-						  Posted by <?php echo e($user['name']); ?> on <?php echo e($post->created_at); ?>
+						  Posted by: <?php echo e($user['name']); ?> on <?php echo e($post->created_at); ?>
 
+                          | Sent to:
+                          <?php foreach($Acourse as $cor): ?>
+                          <?php echo e($cor->course_name); ?>
+
+                              <?php endforeach; ?>
 					  </div>
-					  <div class="interaction">
-							   |
-							  <a href="#" class="edit">Edit</a> |
-							  <a href="<?php echo e(route('post.delete', ['post_id' => $post->id])); ?>">Delete</a>
-						</div>
 				   </article>
 			   <?php endforeach; ?>
 		 </div>

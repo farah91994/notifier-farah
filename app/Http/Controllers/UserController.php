@@ -98,14 +98,19 @@ class UserController extends Controller
 				$Ids[] = $course[1];
 			}
 			$aResult = array();
+            $i=0;
+            $aTmpc = array();
 			foreach ($Ids as $id) {
 				$aTmp = array();
 				$aStudents = DB::table("students")->where("scourse_id", "=", $id)->get();
 				$oCourse = DB::table("courses")->where("id", "=", $id)->get()[0];
 				$aTmp['students'] = $aStudents;
 				$aTmp['course'] = $oCourse;
+                $aTmpc[$i]=$oCourse;
 				$aResult [] = $aTmp;
+                $i++;
 			}
+            Session::put("Acourse",$aTmpc);
 			$astInfo = array();
 			foreach ($aResult as $oObject) {
 				foreach ($oObject['students'] as $student) {
@@ -130,9 +135,9 @@ class UserController extends Controller
 		}
 		foreach($aId as $id){
 			$ast[]=DB::table("students")->where("student_id","=",$id)->get()[0]->student_name;
-           // $atok []=DB::table("students")->where("student_id","=",$id)->get()[0]->student_token;
+            $atok []=DB::table("students")->where("student_id","=",$id)->get()[0]->student_token;
 		}
-        //Session::put("$atok",$atok);
+        Session::put("atok",$atok);
 		$dIdPost = Session::get('id_post');
 		$post = DB::table("posts")->where("id","=",$dIdPost)->get()[0]->body;
 

@@ -1,6 +1,13 @@
 <?php $__env->startSection("head"); ?>
 		<link rel="stylesheet" href="<?php echo e(URL::to('src/css/courseSelection.css')); ?>" />
 		<script type="text/javascript" src="<?php echo e(URL::to('src/js/studentSelection.js')); ?>"></script>
+        <script language="JavaScript">
+            function selectAll(source) {
+                checkboxes = document.getElementsByName('student_ids[]');
+                for(var i in checkboxes)
+                    checkboxes[i].checked = source.checked;
+            }
+        </script>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 	 <div class="row">
@@ -22,7 +29,10 @@
 				 <form id='selectionForm' name="students_selection_form">
 					 <?php foreach($data as $courseName=>$Students): ?>
                          <p class="course_name"><?php echo e($courseName); ?></p>
-						<?php foreach($Students as $student): ?>
+                         <div class="row course-box">
+                         <label class="coursesall"> <input type="checkbox" class="coursesall" id="selectall" onClick="selectAll(this)"/>Select All</label>
+						    </div>
+                             <?php foreach($Students as $student): ?>
 						 <div class="row course-box student-box">
 							<label> <input type="checkbox" name="student_ids[]"  class="students"  value="<?php echo e($student['st_id']); ?>" > <?php echo e($student['st_names']); ?></label>
 						 </div>

@@ -23,12 +23,12 @@
 					 <form id='collegeForm'>
 					    @foreach ($colleges as $college)
 							 <div class="row course-box">
-								<label> <input type="checkbox">{{ $college->college_name }}</label>
+								<label> <input type="checkbox"> {{ $college->college_name }}</label>
 							 </div>
 						@endforeach
 					 </form>
-                <button class="btn btn-primary col-xs-12" id="get-checked-data">next</button>
        </div>
+	  <button class="btn btn-primary col-xs-12" id="get-checked-data">next</button>
       </div>
 	  </section>
 @endsection

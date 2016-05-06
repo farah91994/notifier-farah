@@ -18,8 +18,8 @@ class PostController extends Controller
 		$posts = DB::table("posts")->where("user_id","=",Session::get("id_user"))->orderBy('created_at', 'desc')->get(array("user_id","created_at","body","id"));
 		$user =  DB::table("users")->where("id","=",Session::get("id_user"))->get()[0];
 		$aUser['name'] = $user->first_name;
-
-		return view ('history',['posts' => $posts,"user"=>$aUser]);
+		$Acourse= Session::get("Acourse");
+		return view ('history',["posts" => $posts,"user"=>$aUser,"Acourse"=>$Acourse]);
 	}
 	public function getHistory()
 	{

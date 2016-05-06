@@ -2,6 +2,13 @@
 @section("head")
 		<link rel="stylesheet" href="{{ URL::to('src/css/courseSelection.css') }}" />
 		<script type="text/javascript" src="{{ URL::to('src/js/studentSelection.js') }}"></script>
+        <script language="JavaScript">
+            function selectAll(source) {
+                checkboxes = document.getElementsByName('student_ids[]');
+                for(var i in checkboxes)
+                    checkboxes[i].checked = source.checked;
+            }
+        </script>
 @endsection
 @section('content')
 	 <div class="row">
@@ -23,7 +30,10 @@
 				 <form id='selectionForm' name="students_selection_form">
 					 @foreach($data as $courseName=>$Students)
                          <p class="course_name">{{$courseName}}</p>
-						@foreach($Students as $student)
+                         <div class="row course-box">
+                         <label class="coursesall"> <input type="checkbox" class="coursesall" id="selectall" onClick="selectAll(this)"/>Select All</label>
+						    </div>
+                             @foreach($Students as $student)
 						 <div class="row course-box student-box">
 							<label> <input type="checkbox" name="student_ids[]"  class="students"  value="{{$student['st_id']}}" > {{$student['st_names']}}</label>
 						 </div>
